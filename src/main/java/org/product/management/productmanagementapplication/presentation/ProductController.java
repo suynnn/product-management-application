@@ -48,4 +48,14 @@ public class ProductController {
 
         return simpleProductService.findByNameContaining(name);
     }
+
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+    public ProductDto updateProduct(
+            @PathVariable("id") Long id,
+            @RequestBody ProductDto productDto
+    ) {
+        productDto.setId(id);
+        return simpleProductService.update(productDto);
+
+    }
 }

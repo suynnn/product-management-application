@@ -55,4 +55,14 @@ public class SimpleProductService {
 
         return productDtos;
     }
+
+    public ProductDto update(ProductDto productDto) {
+        Product product = modelMapper.map(productDto, Product.class);
+
+        Product updateProduct = listProductRepository.update(product);
+
+        ProductDto updateProductDto = modelMapper.map(updateProduct, ProductDto.class);
+
+        return updateProductDto;
+    }
 }

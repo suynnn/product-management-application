@@ -37,4 +37,11 @@ public class ListProductRepository {
                 .toList();
     }
 
+    public Product update(Product product) {
+        Integer indexToModify  = products.indexOf(product);
+
+        products.set(indexToModify, product);
+
+        return product;
+    }
 }
