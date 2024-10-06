@@ -65,4 +65,8 @@ public class SimpleProductService {
 
         return updateProductDto;
     }
+
+    public void delete(Long id) {
+        listProductRepository.delete(id);
+    }
 }
