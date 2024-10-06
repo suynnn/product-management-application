@@ -6,6 +6,8 @@ import org.product.management.productmanagementapplication.domain.Product;
 import org.product.management.productmanagementapplication.presentation.ProductDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SimpleProductService {
 
@@ -25,5 +27,22 @@ public class SimpleProductService {
         ProductDto savedProductDto = modelMapper.map(savedProduct, ProductDto.class);
 
         return savedProductDto;
+    }
+
+    public ProductDto findById(Long id) {
+        Product product = listProductRepository.findById(id);
+        ProductDto productDto = modelMapper.map(product, ProductDto.class);
+
+        return productDto;
+    }
+
+    public List<ProductDto> findAll() {
+        List<Product> products = listProductRepository.findAll();
+
+        List<ProductDto> productDtos = products.stream()
+                .map(product -> modelMapper.map(product, ProductDto.class))
+                .toList();
+
+        return productDtos;
     }
 }
