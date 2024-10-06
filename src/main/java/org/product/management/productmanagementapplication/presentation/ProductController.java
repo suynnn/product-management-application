@@ -22,8 +22,8 @@ public class ProductController {
     // 스프링이 자동으로 JSON과 같은 포맷을 Product 객체로 변환
     // 클라이언트가 보내는 JSON의 필드명과 Product 클래스의 필드명이 같아야 제대로 매핑이 됨
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public Product createProduct(@RequestBody Product product) {
+    public ProductDto createProduct(@RequestBody ProductDto productDto) {
 
-        return simpleProductService.add(product);
+        return simpleProductService.add(productDto);
     }
 }
