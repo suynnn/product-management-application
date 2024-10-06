@@ -1,0 +1,8 @@
+package org.product.management.productmanagementapplication.domain;
+
+public class Product {
+    private Long id;
+    private String name;
+    private Integer price;
+    private Integer amount;
+}
